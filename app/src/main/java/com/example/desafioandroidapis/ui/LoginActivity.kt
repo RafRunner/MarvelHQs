@@ -13,7 +13,16 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         findViewById<Button>(R.id.btnLogin).setOnClickListener {
-            startActivity(Intent(this, ComicDisplayActivity::class.java))
+            callActivityAndFinish(ComicDisplayActivity::class.java)
         }
+
+        findViewById<Button>(R.id.btnCreateAccount).setOnClickListener {
+            callActivityAndFinish(RegisterActivity::class.java)
+        }
+    }
+
+    private fun <T> callActivityAndFinish(activity: Class<T>) {
+        startActivity(Intent(this, activity))
+        finish()
     }
 }

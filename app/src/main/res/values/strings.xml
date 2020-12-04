@@ -8,4 +8,10 @@
     <string name="remember_me">Remember me</string>
     <string name="login">Log in</string>
     <string name="create_accont">Create an account</string>
+
+    <!-- activity_register -->
+    <string name="register">Register</string>
+    <string name="add_user">Add user</string>
+    <string name="name">Name</string>
+    <string name="save">Save</string>
 </resources>
