@@ -1,8 +1,8 @@
 package com.example.desafioandroidapis.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -44,6 +44,8 @@ class ComicDisplayActivity : AppCompatActivity() {
     }
 
     private fun callComicDetails(comic: Comic) {
-        Toast.makeText(this, comic.title, Toast.LENGTH_LONG).show()
+        val intent = Intent(this, ComicDetailsActivity::class.java)
+        intent.putExtra("comic", comic)
+        startActivity(intent)
     }
 }

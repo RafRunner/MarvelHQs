@@ -18,4 +18,11 @@
     <!-- activity_comic_display -->
     <string name="marvel_logo">Marvel logo</string>
     <string name="comic_thumbnail">Comic Image</string>
+    <string name="lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_sed_do_eiusmod_tempor_incididunt_ut_labore_et_dolore_magna_aliqua_neque_viverra_justo_nec_ultrices_dui_sapien_quis_varius_quam_quisque_id_diam_vel_quam_elementum_pulvinar_est_ullamcorper_eget_nulla_facilisi_etiam_dignissim_diam_quis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Neque viverra justo nec ultrices dui sapien. Quis varius quam quisque id diam vel quam elementum pulvinar. Est ullamcorper eget nulla facilisi etiam dignissim diam quis.</string>
+
+    <!-- activity_comic_details -->
+    <string name="published_template">Published: %s</string>
+    <string name="price_template">Price: %s</string>
+    <string name="pages_template">Pages: %s</string>
+    <string name="not_available">Not available</string>
 </resources>
