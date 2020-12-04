@@ -1,8 +1,10 @@
 package com.example.desafioandroidapis.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import com.example.desafioandroidapis.R
 import com.example.desafioandroidapis.model.Comic
@@ -27,6 +29,12 @@ class ComicDetailsActivity : AppCompatActivity() {
             }
             findViewById<TextView>(R.id.tvComicPages).apply {
                 text = text.toString().format(comic.getFormatedPageCount(default))
+            }
+
+            findViewById<ImageView>(R.id.ivComicCover).setOnClickListener {
+                val intent = Intent(this, ComicCoverZoomActivity::class.java)
+                intent.putExtra("comic", comic)
+                startActivity(intent)
             }
         }
 

@@ -26,4 +26,5 @@
     <string name="pages_template">Pages: %s</string>
     <string name="not_available">Not available</string>
     <string name="go_back">go back</string>
+    <string name="close">close</string>
 </resources>

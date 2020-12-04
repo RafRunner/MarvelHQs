@@ -1,5 +1,6 @@
 package com.example.desafioandroidapis.model
 
+import android.graphics.Bitmap
 import java.io.Serializable
 
 class Comic(
@@ -13,6 +14,8 @@ class Comic(
     val dates: List<ComicDate>?,
     val prices: List<ComicPrice>?,
 ) : Serializable {
+
+    var imagesBitMap: MutableList<Bitmap?> = mutableListOf()
 
     fun findValidImages(): List<Image> {
         val validImages = mutableListOf<Image>()
