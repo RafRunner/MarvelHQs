@@ -2,6 +2,7 @@ package com.example.desafioandroidapis.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageButton
 import android.widget.TextView
 import com.example.desafioandroidapis.R
 import com.example.desafioandroidapis.model.Comic
@@ -27,6 +28,10 @@ class ComicDetailsActivity : AppCompatActivity() {
             findViewById<TextView>(R.id.tvComicPages).apply {
                 text = text.toString().format(comic.getFormatedPageCount(default))
             }
+        }
+
+        findViewById<ImageButton>(R.id.btnBack).setOnClickListener {
+            onBackPressed()
         }
     }
 }
