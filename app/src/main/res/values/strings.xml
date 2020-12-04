@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">Desafio Android APIs</string>
+    <string name="app_name">Marvel HQ\'s</string>
+
+    <!-- activity_login -->
+    <string name="wellcome_message">Welcome to Marvel HQ\'s</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="remember_me">Remember me</string>
+    <string name="login">Log in</string>
+    <string name="create_accont">Create an account</string>
 </resources>
