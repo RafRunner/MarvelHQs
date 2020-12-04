@@ -7,7 +7,9 @@ class Comic(
     val description: String?,
     val pageCount: Int?,
     val thumbnail: Image?,
-    val images: List<Image?>?,
+    val images: List<Image>?,
+    val dates: List<ComicDate>?,
+    val prices: List<ComicPrice>?,
 ) {
     fun findValidImages(): List<Image> {
         val validImages = mutableListOf<Image>()
@@ -16,7 +18,7 @@ class Comic(
             validImages.add(thumbnail)
         }
         images?.forEach {
-            if (it != null && it.isValid()) {
+            if (it.isValid()) {
                 validImages.add(it)
             }
         }
