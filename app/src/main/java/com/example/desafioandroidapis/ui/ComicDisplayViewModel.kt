@@ -16,12 +16,25 @@ class ComicDisplayViewModel(private val comicService: ComicService) : ViewModel(
 
     fun populateComicList() {
         viewModelScope.launch {
-            val response = comicService.getAllComics(0, 10)
+            val validComicsFecthed = mutableListOf<Comic>()
+            var offSet = 0
 
-            val results = response.get("data").asJsonObject.get("results")
-            val comics = Gson().fromJson<List<Comic>>(results, object : TypeToken<List<Comic>>() {}.type)
+            while (true) {
+                val response = comicService.getAllComics(offSet, 10)
 
-            Log.i("ComicDisplayViewModel", comics.toString())
+                val results = response.get("data").asJsonObject.get("results")
+                val comics = Gson().fromJson<List<Comic>>(results, object : TypeToken<List<Comic>>() {}.type)
+                val validComics = comics.filter { it.isValid() }
+
+                validComicsFecthed.addAll(validComics)
+
+                if (validComicsFecthed.size >= 10) {
+                    Log.i("ComicDisplayViewModel", validComicsFecthed.toString())
+                    break
+                }
+
+                offSet += 10
+            }
         }
     }
 }
