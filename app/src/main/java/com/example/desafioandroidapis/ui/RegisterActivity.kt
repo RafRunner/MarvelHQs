@@ -15,21 +15,12 @@ class RegisterActivity : AppCompatActivity() {
 
         val toolbar = findViewById<Toolbar>(R.id.tbApp)
         toolbar.setNavigationOnClickListener {
-            callActivityAndFinish(LoginActivity::class.java)
+            onBackPressed()
         }
         toolbar.title = resources.getString(R.string.register)
 
         findViewById<Button>(R.id.btnRegister).setOnClickListener {
-            callActivityAndFinish(ComicDisplayActivity::class.java)
+            startActivity(Intent(this, ComicDisplayActivity::class.java))
         }
-    }
-
-    private fun <T> callActivityAndFinish(activity: Class<T>) {
-        startActivity(Intent(this, activity))
-        finish()
-    }
-
-    override fun onBackPressed() {
-        callActivityAndFinish(LoginActivity::class.java)
     }
 }

@@ -1,6 +1,5 @@
 package com.example.desafioandroidapis.ui
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -29,7 +28,7 @@ class ComicDisplayViewModel(private val comicService: ComicService) : ViewModel(
                 validComicsFecthed.addAll(validComics)
 
                 if (validComicsFecthed.size >= 10) {
-                    Log.i("ComicDisplayViewModel", validComicsFecthed.toString())
+                    listComics.value = validComicsFecthed
                     break
                 }
 

@@ -8,6 +8,8 @@ class Image(
         path != null && !path.endsWith("image_not_available") && extension != null
 
     override fun toString(): String {
-        return "Image(path='$path', extension='$extension')"
+        return "$path.$extension"
     }
+
+    fun buildUrl(): String = "$path.$extension"
 }
