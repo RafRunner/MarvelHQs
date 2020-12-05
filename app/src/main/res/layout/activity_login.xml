@@ -11,14 +11,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_margin="20sp"
+        android:background="@drawable/pill_shape"
+        android:backgroundTint="@color/red"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/pill_shape"
-        android:backgroundTint="@color/red">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:layout_width="wrap_content"
@@ -26,18 +26,18 @@
             android:layout_gravity="center|top"
             android:layout_margin="15dp"
             android:text="@string/wellcome_message"
+            android:textColor="@color/white"
             android:textSize="25sp"
-            android:textStyle="bold"
-            android:textColor="@color/white"/>
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingVertical="25dp"
-            android:paddingHorizontal="13dp"
             android:background="@drawable/pill_shape"
-            android:backgroundTint="@color/white">
+            android:backgroundTint="@color/white"
+            android:orientation="vertical"
+            android:paddingHorizontal="13dp"
+            android:paddingVertical="25dp">
 
             <include layout="@layout/user_email_password" />
 
@@ -45,10 +45,11 @@
                 android:id="@+id/cbRememberMe"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/remember_me"
-                android:textSize="20sp"
                 android:buttonTint="@color/red"
-                android:checked="true"/>
+                android:checked="true"
+                android:text="@string/remember_me"
+                android:textColor="@color/blue_dark"
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/btnLogin"
@@ -63,12 +64,12 @@
                 android:id="@+id/btnCreateAccount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/transparent"
-                android:textColor="@color/blue_dark"
-                android:textAllCaps="false"
                 android:layout_gravity="center"
+                android:background="@color/transparent"
                 android:text="@string/create_accont"
-                android:textSize="18sp"/>
+                android:textAllCaps="false"
+                android:textColor="@color/blue_dark"
+                android:textSize="18sp" />
         </LinearLayout>
 
     </LinearLayout>

@@ -12,12 +12,12 @@
         android:id="@+id/ivComicBanner"
         android:layout_width="match_parent"
         android:layout_height="220dp"
+        android:contentDescription="@string/comic_thumbnail"
         android:scaleType="centerCrop"
         android:src="@drawable/splash_screen"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/comic_thumbnail" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/ivComicCover"
@@ -26,12 +26,12 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="88dp"
         android:background="@color/white"
+        android:contentDescription="@string/comic_thumbnail"
         android:padding="3dp"
         android:scaleType="fitXY"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/splash_screen"
-        android:contentDescription="@string/comic_thumbnail" />
+        app:srcCompat="@drawable/splash_screen" />
 
     <ImageButton
         android:id="@+id/btnBack"
@@ -39,12 +39,12 @@
         android:layout_height="40sp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:scaleType="fitXY"
         android:background="@color/transparent"
+        android:contentDescription="@string/go_back"
+        android:scaleType="fitXY"
         android:src="@drawable/ic_baseline_arrow_back_24"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/go_back" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -73,36 +73,36 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:textSize="18sp"
             android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Neque viverra justo nec ultrices dui sapien. Quis varius quam quisque id diam vel quam elementum pulvinar. Est ullamcorper eget nulla facilisi etiam dignissim diam quis."
             android:textColor="@color/white"
+            android:textSize="18sp"
             tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/tvComicPublishDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
             android:text="@string/published_template"
             android:textColor="@color/white"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvComicPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
             android:text="@string/price_template"
             android:textColor="@color/white"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvComicPages"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
             android:text="@string/pages_template"
             android:textColor="@color/white"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
     </LinearLayout>

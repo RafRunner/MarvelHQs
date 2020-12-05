@@ -48,12 +48,8 @@ class ComicDisplayActivity : AppCompatActivity() {
             hasOngoingRequest = false
         }
 
-        try {
-            hasOngoingRequest = true
-            comicDisplayViewModel.fetchMoreComics()
-        } catch (e: Exception) {
-            Toast.makeText(self, resources.getString(R.string.error_loading_comics), Toast.LENGTH_LONG).show()
-        }
+        hasOngoingRequest = true
+        comicDisplayViewModel.fetchMoreComics()
     }
 
     private fun callComicDetails(comic: Comic) {

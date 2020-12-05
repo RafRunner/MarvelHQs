@@ -1,5 +1,6 @@
 package com.example.desafioandroidapis.ui
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -8,6 +9,7 @@ import com.example.desafioandroidapis.services.ComicService
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.launch
+import retrofit2.HttpException
 
 
 class ComicDisplayViewModel(private val comicService: ComicService) : ViewModel() {
@@ -23,7 +25,13 @@ class ComicDisplayViewModel(private val comicService: ComicService) : ViewModel(
             val validComicsFecthed = mutableListOf<Comic>()
 
             while (true) {
-                val response = comicService.getAllComics(numberOffsetsToApplay * batchSize, batchSize)
+                val response = try {
+                    comicService.getAllComics(numberOffsetsToApplay * batchSize, batchSize)
+                } catch (e: HttpException) {
+                    Log.e("ComicDisplayViewModel", "Erro ao buscar comics: " + e.message())
+                    return@launch
+                }
+
                 numberOffsetsToApplay++
 
                 val results = response.get("data").asJsonObject.get("results")
