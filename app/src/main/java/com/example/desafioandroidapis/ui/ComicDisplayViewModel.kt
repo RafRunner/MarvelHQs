@@ -17,8 +17,8 @@ class ComicDisplayViewModel(private val comicService: ComicService) : ViewModel(
 
     val listComics = MutableLiveData<List<Comic>>()
 
-    fun populateComicList(context: Context) {
-        val batchSize = 15
+    fun populateComicList() {
+        val batchSize = 12
 
         viewModelScope.launch {
             val validComicsFecthed = mutableListOf<Comic>()

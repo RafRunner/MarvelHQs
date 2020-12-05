@@ -41,7 +41,7 @@ class ComicDisplayActivity : AppCompatActivity() {
             comicDisplayAdapter.setComicList(it)
         }
 
-        comicDisplayViewModel.populateComicList(self)
+        comicDisplayViewModel.populateComicList()
     }
 
     private fun callComicDetails(comic: Comic) {
