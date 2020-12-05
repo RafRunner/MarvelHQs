@@ -1,6 +1,7 @@
 package com.example.desafioandroidapis.ui
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,9 +10,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.desafioandroidapis.R
 import com.example.desafioandroidapis.model.Comic
+import com.squareup.picasso.Picasso
 
 
 class ComicDisplayAdapter(
+    private val context: Context,
     private val onComicClicked: (c: Comic) -> Unit
 )
     : RecyclerView.Adapter<ComicDisplayAdapter.ComicViewHoldwer>() {
@@ -36,7 +39,7 @@ class ComicDisplayAdapter(
     override fun onBindViewHolder(holder: ComicViewHoldwer, position: Int) {
         val comic = listComics[position]
 
-//        holder.ivComicThumb.setImageBitmap(comic.imagesBitMap)
+        Picasso.with(context).load(comic.findValidImages()[0].buildUrl()).fit().into(holder.ivComicThumb)
         holder.tvComicEdition.text = "# ${comic.issueNumber}"
 
         holder.itemView.setOnClickListener {

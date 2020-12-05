@@ -13,5 +13,5 @@ class Image(
         return "$path.$extension"
     }
 
-    fun buildUrl(): String = "$path.$extension"
+    fun buildUrl(): String = "$path.$extension".replace("http://", "https://")
 }

@@ -1,20 +1,17 @@
 package com.example.desafioandroidapis.ui
 
 import android.content.Intent
-import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.desafioandroidapis.R
 import com.example.desafioandroidapis.model.Comic
 import com.example.desafioandroidapis.services.comicService
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.launch
+
 
 class ComicDisplayActivity : AppCompatActivity() {
 
@@ -26,7 +23,7 @@ class ComicDisplayActivity : AppCompatActivity() {
         }
     }
 
-    private val comicDisplayAdapter = ComicDisplayAdapter(::callComicDetails)
+    private val comicDisplayAdapter = ComicDisplayAdapter(this, ::callComicDetails)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

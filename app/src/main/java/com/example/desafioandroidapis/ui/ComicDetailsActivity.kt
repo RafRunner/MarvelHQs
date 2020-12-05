@@ -8,6 +8,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.example.desafioandroidapis.R
 import com.example.desafioandroidapis.model.Comic
+import com.squareup.picasso.Picasso
+
 
 class ComicDetailsActivity : AppCompatActivity() {
 
@@ -16,7 +18,7 @@ class ComicDetailsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_comic_details)
 
         (intent.getSerializableExtra("comic") as? Comic)?.let { comic ->
-            findViewById<TextView>(R.id.tvComicTitle).text       = comic.title
+            findViewById<TextView>(R.id.tvComicTitle).text = comic.title
             findViewById<TextView>(R.id.tvComicDescription).text = comic.description
 
             val default = resources.getString(R.string.not_available)
@@ -36,6 +38,20 @@ class ComicDetailsActivity : AppCompatActivity() {
                 intent.putExtra("comic", comic)
                 startActivity(intent)
             }
+
+            val images = comic.findValidImages()
+            val indexBannerImage = if (images.size == 1) 0 else 1
+
+            Picasso.with(this)
+                .load(images[0].buildUrl())
+                .fit()
+                .into(findViewById<ImageView>(R.id.ivComicCover))
+
+            Picasso.with(this)
+                .load(images[indexBannerImage].buildUrl())
+                .resize(600, 600)
+                .centerCrop()
+                .into(findViewById<ImageView>(R.id.ivComicBanner))
         }
 
         findViewById<ImageButton>(R.id.btnBack).setOnClickListener {
