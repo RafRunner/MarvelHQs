@@ -52,7 +52,7 @@ class Comic(
         if (dates == null) {
             return default
         }
-        return dates[0].getFormatedDate().toString()
+        return (dates.find { it.type == "focDate" } ?: dates[0]).getFormatedDate().toString()
     }
 
     fun getFormatedPageCount(default: String): String {

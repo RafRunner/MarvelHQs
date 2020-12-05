@@ -3,6 +3,7 @@ package com.example.desafioandroidapis.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.ViewModel
@@ -34,9 +35,11 @@ class ComicDisplayActivity : AppCompatActivity() {
         val self = this
 
         findViewById<RecyclerView>(R.id.rvComics).apply {
+            val gridLayoutManager = GridLayoutManager(self, 3)
             adapter = comicDisplayAdapter
-            layoutManager = GridLayoutManager(self, 3)
+            layoutManager = gridLayoutManager
             setHasFixedSize(false)
+            setUpScroller(this, gridLayoutManager)
         }
 
         comicDisplayViewModel.listComics.observe(self) {
@@ -54,5 +57,25 @@ class ComicDisplayActivity : AppCompatActivity() {
         val intent = Intent(this, ComicDetailsActivity::class.java)
         intent.putExtra("comic", comic)
         startActivity(intent)
+    }
+
+    private fun setUpScroller(recyclerView: RecyclerView, gridLayoutManager: GridLayoutManager) {
+        recyclerView.addOnScrollListener(
+            object : RecyclerView.OnScrollListener() {
+                override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                    super.onScrolled(recyclerView, dx, dy)
+
+                    if (dy <= 0) return
+
+                    val lItem = gridLayoutManager.itemCount
+                    val vItem = gridLayoutManager.findFirstCompletelyVisibleItemPosition()
+                    val itens = comicDisplayAdapter.itemCount
+
+                    if (lItem + vItem < itens) return
+
+                    Log.i("MainActivity", "Hora de carregar mais dados")
+                }
+            }
+        )
     }
 }

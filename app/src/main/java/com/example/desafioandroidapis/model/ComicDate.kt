@@ -16,11 +16,11 @@ class ComicDate(
     fun getFormatedDate(): String? {
         if (date == null) return null
 
-        val values = Regex("(\\d{4})-(\\d{2})-(\\d{2})").find(date) ?: return null
-        val groups = values.groups
-        val year = groups[1]?.value?.toInt() ?: return null
-        val month = groups[2]?.value?.toInt() ?: return null
-        val day = groups[3]?.value?.toInt() ?: return null
+        val values = Regex("(\\d{4})-(\\d{2})-(\\d{2})").find(date)
+        val groups = values!!.groups
+        val year = groups[1]!!.value.toInt()
+        val month = groups[2]!!.value.toInt()
+        val day = groups[3]!!.value.toInt()
 
         return LocalDate.of(year, month, day).format(dateFormat)
     }
