@@ -14,15 +14,17 @@ class ComicDisplayViewModel(private val comicService: ComicService) : ViewModel(
 
     val listComics = MutableLiveData<List<Comic>>()
 
-    fun populateComicList() {
+    private var numberOffsetsToApplay = 0
+
+    fun fetchMoreComics() {
         val batchSize = 12
 
         viewModelScope.launch {
             val validComicsFecthed = mutableListOf<Comic>()
-            var offSet = 0
 
             while (true) {
-                val response = comicService.getAllComics(offSet, batchSize)
+                val response = comicService.getAllComics(numberOffsetsToApplay * batchSize, batchSize)
+                numberOffsetsToApplay++
 
                 val results = response.get("data").asJsonObject.get("results")
                 val comics = Gson().fromJson<List<Comic>>(results, object : TypeToken<List<Comic>>() {}.type)
@@ -34,8 +36,6 @@ class ComicDisplayViewModel(private val comicService: ComicService) : ViewModel(
                     listComics.value = validComicsFecthed
                     break
                 }
-
-                offSet += batchSize
             }
         }
     }

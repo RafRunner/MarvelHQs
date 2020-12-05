@@ -18,10 +18,10 @@ class ComicDetailsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_comic_details)
 
         (intent.getSerializableExtra("comic") as? Comic)?.let { comic ->
-            findViewById<TextView>(R.id.tvComicTitle).text = comic.title
-            findViewById<TextView>(R.id.tvComicDescription).text = comic.description
-
             val default = resources.getString(R.string.not_available)
+
+            findViewById<TextView>(R.id.tvComicTitle).text = comic.title
+            findViewById<TextView>(R.id.tvComicDescription).text = comic.description ?: default
 
             findViewById<TextView>(R.id.tvComicPrice).apply {
                 text = text.toString().format(comic.getFormatedPrice(default))

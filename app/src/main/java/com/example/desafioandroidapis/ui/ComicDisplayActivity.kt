@@ -27,6 +27,7 @@ class ComicDisplayActivity : AppCompatActivity() {
     }
 
     private val comicDisplayAdapter = ComicDisplayAdapter(this, ::callComicDetails)
+    private var hasOngoingRequest = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,11 +44,13 @@ class ComicDisplayActivity : AppCompatActivity() {
         }
 
         comicDisplayViewModel.listComics.observe(self) {
-            comicDisplayAdapter.setComicList(it)
+            comicDisplayAdapter.addToComicList(it)
+            hasOngoingRequest = false
         }
 
         try {
-            comicDisplayViewModel.populateComicList()
+            hasOngoingRequest = true
+            comicDisplayViewModel.fetchMoreComics()
         } catch (e: Exception) {
             Toast.makeText(self, resources.getString(R.string.error_loading_comics), Toast.LENGTH_LONG).show()
         }
@@ -67,13 +70,15 @@ class ComicDisplayActivity : AppCompatActivity() {
 
                     if (dy <= 0) return
 
-                    val lItem = gridLayoutManager.itemCount
-                    val vItem = gridLayoutManager.findFirstCompletelyVisibleItemPosition()
+                    val lastVisbleItem = gridLayoutManager.findLastVisibleItemPosition()
                     val itens = comicDisplayAdapter.itemCount
 
-                    if (lItem + vItem < itens) return
+                    if (lastVisbleItem + 4 < itens || itens > 100) return
+                    if (hasOngoingRequest) return
 
-                    Log.i("MainActivity", "Hora de carregar mais dados")
+                    Log.i("MainActivity", "Carregando mais comics")
+                    hasOngoingRequest = true
+                    comicDisplayViewModel.fetchMoreComics()
                 }
             }
         )

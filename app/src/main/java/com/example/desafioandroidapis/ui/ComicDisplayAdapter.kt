@@ -19,7 +19,7 @@ class ComicDisplayAdapter(
 )
     : RecyclerView.Adapter<ComicDisplayAdapter.ComicViewHoldwer>() {
 
-    private var listComics: List<Comic> = listOf()
+    private val listComics: MutableList<Comic> = mutableListOf()
 
     inner class ComicViewHoldwer(comicView: View) : RecyclerView.ViewHolder(comicView) {
         val ivComicThumb: ImageView = comicView.findViewById(R.id.ivComicThumb)
@@ -49,8 +49,8 @@ class ComicDisplayAdapter(
 
     override fun getItemCount(): Int = listComics.size
 
-    fun setComicList(listComics: List<Comic>) {
-        this.listComics = listComics
+    fun addToComicList(listComics: List<Comic>) {
+        this.listComics.addAll(listComics)
         notifyDataSetChanged()
     }
 }

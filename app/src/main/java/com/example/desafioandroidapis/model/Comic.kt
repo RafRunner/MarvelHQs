@@ -30,9 +30,9 @@ class Comic(
         return validImages
     }
 
-    fun isValid(): Boolean = id != null && hasDescriptionAndTitle() && hasAtLeastOneImage()
+    fun isValid(): Boolean = id != null && hasTitle() && hasAtLeastOneImage()
 
-    private fun hasDescriptionAndTitle(): Boolean = title != null && description != null
+    private fun hasTitle(): Boolean = title != null
 
     private fun hasAtLeastOneImage(): Boolean {
         if (thumbnail != null && thumbnail.isValid()) {
