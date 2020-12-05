@@ -3,6 +3,7 @@ package com.example.desafioandroidapis.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.desafioandroidapis.R
 import com.example.desafioandroidapis.model.Comic
 import com.example.desafioandroidapis.services.comicService
+import java.lang.Exception
 
 
 class ComicDisplayActivity : AppCompatActivity() {
@@ -41,7 +43,11 @@ class ComicDisplayActivity : AppCompatActivity() {
             comicDisplayAdapter.setComicList(it)
         }
 
-        comicDisplayViewModel.populateComicList()
+        try {
+            comicDisplayViewModel.populateComicList()
+        } catch (e: Exception) {
+            Toast.makeText(self, resources.getString(R.string.error_loading_comics), Toast.LENGTH_LONG).show()
+        }
     }
 
     private fun callComicDetails(comic: Comic) {
