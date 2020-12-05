@@ -12,7 +12,7 @@
         android:id="@+id/ivComicCover"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginVertical="60dp"
+        android:layout_marginVertical="100dp"
         android:layout_marginHorizontal="16dp"
         android:background="@color/white"
         android:contentDescription="@string/comic_thumbnail"
@@ -28,12 +28,12 @@
         android:layout_width="40sp"
         android:layout_height="40sp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:scaleType="fitXY"
+        android:layout_marginTop="30dp"
         android:background="@color/transparent"
+        android:contentDescription="@string/close"
+        android:scaleType="fitXY"
         android:src="@drawable/ic_baseline_close_24"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/close" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

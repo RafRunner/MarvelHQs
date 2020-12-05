@@ -10,7 +10,6 @@ interface ComicService {
     suspend fun getAllComics(
         @Query("offset") offset: Int,
         @Query("limit") limit: Int,
-        @Query("format") format: String = "comic",
         @Query("ts") ts: String = "1",
         @Query("apikey") apikey: String = "6eb7e8896ec5850c52515a8a23ee97f0",
         @Query("hash") hash: String = "40a3aa568bb269dfad85ae0c4a297181",
