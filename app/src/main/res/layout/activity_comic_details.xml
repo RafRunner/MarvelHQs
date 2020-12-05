@@ -74,8 +74,9 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:textSize="18sp"
-            android:text="@string/lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_sed_do_eiusmod_tempor_incididunt_ut_labore_et_dolore_magna_aliqua_neque_viverra_justo_nec_ultrices_dui_sapien_quis_varius_quam_quisque_id_diam_vel_quam_elementum_pulvinar_est_ullamcorper_eget_nulla_facilisi_etiam_dignissim_diam_quis"
-            android:textColor="@color/white" />
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Neque viverra justo nec ultrices dui sapien. Quis varius quam quisque id diam vel quam elementum pulvinar. Est ullamcorper eget nulla facilisi etiam dignissim diam quis."
+            android:textColor="@color/white"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/tvComicPublishDate"
