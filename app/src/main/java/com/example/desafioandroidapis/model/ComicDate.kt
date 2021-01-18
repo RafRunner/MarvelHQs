@@ -8,7 +8,7 @@ private val dateFormat = DateTimeFormatter.ofPattern("MMMM dd, yyyy")
 
 class ComicDate(
     val type: String?,
-    val date: String?,
+    private val date: String?,
 ) : Serializable {
 
     fun isValid(): Boolean = type != null && date != null

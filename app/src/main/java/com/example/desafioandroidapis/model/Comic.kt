@@ -8,11 +8,11 @@ class Comic(
     val title: String?,
     val issueNumber: Int?,
     val description: String?,
-    val pageCount: Int?,
-    val thumbnail: Image?,
-    val images: List<Image>?,
-    val dates: List<ComicDate>?,
-    val prices: List<ComicPrice>?,
+    private val pageCount: Int?,
+    private val thumbnail: Image?,
+    private val images: List<Image>?,
+    private val dates: List<ComicDate>?,
+    private val prices: List<ComicPrice>?,
 ) : Serializable {
 
     fun findValidImages(): List<Image> {

@@ -39,7 +39,11 @@ class ComicDisplayAdapter(
     override fun onBindViewHolder(holder: ComicViewHoldwer, position: Int) {
         val comic = listComics[position]
 
-        Picasso.with(context).load(comic.findValidImages()[0].buildUrl()).fit().into(holder.ivComicThumb)
+        Picasso.with(context)
+            .load(comic.findValidImages()[0].buildUrl())
+            .fit()
+            .into(holder.ivComicThumb)
+
         holder.tvComicEdition.text = "# ${comic.issueNumber}"
 
         holder.itemView.setOnClickListener {

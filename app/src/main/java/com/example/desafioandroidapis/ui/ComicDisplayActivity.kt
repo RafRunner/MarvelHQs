@@ -65,12 +65,12 @@ class ComicDisplayActivity : AppCompatActivity() {
                     super.onScrolled(recyclerView, dx, dy)
 
                     if (dy <= 0) return
+                    if (hasOngoingRequest) return
 
                     val lastVisbleItem = gridLayoutManager.findLastVisibleItemPosition()
                     val itens = comicDisplayAdapter.itemCount
 
                     if (lastVisbleItem + 4 < itens || itens > 100) return
-                    if (hasOngoingRequest) return
 
                     Log.i("MainActivity", "Carregando mais comics")
                     hasOngoingRequest = true

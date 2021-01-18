@@ -3,8 +3,8 @@ package com.example.desafioandroidapis.model
 import java.io.Serializable
 
 class ComicPrice(
-    val type: String?,
-    val price: Float?,
+    private val type: String?,
+    private val price: Float?,
 ) : Serializable {
 
     fun isValid(): Boolean = type != null && price != null
